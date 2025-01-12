@@ -50,7 +50,7 @@
 
 </head>
 
-<body id="body">
+<body id="body" class="bg-primary">
   <!-- leftbar-tab-menu -->
   <div class="leftbar-tab-menu">
     <div class="main-icon-menu">
@@ -119,7 +119,7 @@
 
           <ul class="nav flex-column">
             <li class="nav-item">
-              <a class="nav-link" href="/dashboard">Dashboard Penjualan</a>
+              <a class="nav-link" href="/dashboard">Welcome</a>
             </li><!--end nav-item-->
           </ul><!--end nav-->
         </div><!-- end Dashboards -->
@@ -205,7 +205,7 @@
           <div class="dropdown-menu dropdown-menu-end">
             <form action="{{ route('logout') }}" method="POST">
               @csrf
-              <a class="dropdown-item" href="#"><i class="ti ti-user font-16 me-1 align-text-bottom"></i>
+              <a class="dropdown-item" href="/profile"><i class="ti ti-user font-16 me-1 align-text-bottom"></i>
                 Profile</a>
               <a class="dropdown-item" href="#"><i class="ti ti-settings font-16 me-1 align-text-bottom"></i>
                 Settings</a>
@@ -292,7 +292,7 @@
 
       <!--Start Footer-->
       <!-- Footer Start -->
-      <footer class="footer text-center text-sm-start">
+      <footer class="footer text-center text-sm-start bg-light">
         &copy;
         <script>
           document.write(new Date().getFullYear())
