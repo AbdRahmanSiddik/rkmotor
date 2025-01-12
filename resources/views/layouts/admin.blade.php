@@ -54,7 +54,7 @@
   <!-- leftbar-tab-menu -->
   <div class="leftbar-tab-menu">
     <div class="main-icon-menu">
-      <a href="index.html" class="logo logo-metrica d-block text-center">
+      <a href="/dashboard" class="logo logo-metrica d-block text-center">
         <span>
           <img src="{{ asset('') }}assets/images/logo-sm.png" alt="logo-small" class="logo-sm">
         </span>
@@ -93,7 +93,7 @@
       </div><!--end main-icon-menu-body-->
       <div class="pro-metrica-end">
         <a href="#" class="profile">
-          <img src="{{ asset('') }}assets/images/users/user-4.jpg" alt="profile-user"
+          <img src="{{ asset('') }}assets/images/users/user-vector.png" alt="profile-user"
             class="rounded-circle thumb-sm">
         </a>
       </div><!--end pro-metrica-end-->
@@ -105,7 +105,7 @@
       <div class="topbar-left">
         <a href="index.html" class="logo">
           <span>
-            <img src="{{ asset('') }}assets/images/logo-dark.png" alt="logo-large" class="logo-lg logo-dark">
+            <img src="{{ asset('') }}assets/images/rkmotor.png" alt="logo-large" class="logo-lg logo-dark">
             <img src="{{ asset('') }}assets/images/logo.png" alt="logo-large" class="logo-lg logo-light">
           </span>
         </a><!--end logo-->
@@ -169,10 +169,10 @@
           </div>
           <ul class="nav flex-column">
             <li class="nav-item">
-              <a class="nav-link" href="auth-login.html">Setting</a>
+              <a class="nav-link" href="#">Setting</a>
             </li><!--end nav-item-->
             <li class="nav-item">
-              <a class="nav-link" href="auth-login-alt.html">Account</a>
+              <a class="nav-link" href="/profile">Account</a>
             </li><!--end nav-item-->
           </ul><!--end nav-->
         </div><!-- end Authentication-->
@@ -193,7 +193,7 @@
           <a class="nav-link dropdown-toggle nav-user" data-bs-toggle="dropdown" href="#" role="button"
             aria-haspopup="false" aria-expanded="false">
             <div class="d-flex align-items-center">
-              <img src="{{ asset('') }}assets/images/users/user-4.jpg" alt="profile-user"
+              <img src="{{ asset('') }}assets/images/users/user-vector.png" alt="profile-user"
                 class="rounded-circle me-2 thumb-sm" />
               <div>
                 <small class="d-none d-md-block font-11">{{ auth()->user()->email }}</small>
