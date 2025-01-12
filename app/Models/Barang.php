@@ -24,6 +24,13 @@ class Barang extends Model
 
     public function pembayaran()
     {
-        return $this->belongsToMany(Pembayaran::class, 'detail_pembayarans', 'barang_id', 'pembayaran_id')->withPivot('kuantitas');
+        return $this->belongsToMany(
+            Pembayaran::class,
+            'detail_pembayarans',
+            'barang_id',
+            'pembayaran_id',
+            'id',
+            'id'
+        )->withPivot('kuantitas');
     }
 }

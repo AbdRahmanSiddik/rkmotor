@@ -59,66 +59,71 @@
 
         <form action="{{ route('pembayaran.store') }}" method="POST" id="checkoutForm">
           @csrf
-          <div class="card">
-            <div class="card-header">
-              <h4 class="card-title">Checkout</h4>
-            </div>
-            <div class="card-body">
-              <div class="row">
-                <div class="col-md-3">
-                  <div class="mb-3">
-                    <label for="nama_customer" class="form-label">Nama Customer</label>
-                    <input type="text" class="form-control" name="nama_customer" id="nama_customer"
-                      aria-describedby="helpId" placeholder="" />
+          <div class="row">
+              <div class="col-md-4">
+                  <div class="card">
+                    <div class="card-header">
+                      <h4 class="card-title">Customer</h4>
+                    </div>
+                    <div class="card-body">
+                      <div class="row">
+                        <div class="col-md-12">
+                          <div class="mb-3">
+                            <label for="nama_customer" class="form-label">Nama Customer</label>
+                            <input type="text" class="form-control" name="nama_customer" id="nama_customer"
+                              aria-describedby="helpId" placeholder="" />
+                          </div>
+                        </div>
+                        <div class="col-md-12">
+                          <div class="mb-3">
+                            <label for="alamat_customer" class="form-label">Alamat Customer</label>
+                            <input type="text" class="form-control" name="alamat_customer" id="alamat_customer"
+                              aria-describedby="helpId" placeholder="" />
+                          </div>
+                        </div>
+                        <div class="col-md-12">
+                          <div class="mb-3">
+                            <label for="kontak" class="form-label">Kontak Customer</label>
+                            <input type="text" class="form-control" name="kontak" id="kontak" aria-describedby="helpId"
+                              placeholder="" />
+                          </div>
+                        </div>
+                        <div class="col-md-12">
+                          <div class="mb-3">
+                            <label for="total" class="form-label">Total</label>
+                            <input type="text" class="form-control" name="total" id="total"
+                              aria-describedby="helpId" placeholder="" value="" readonly />
+                          </div>
+                        </div>
+                      </div>
+                    </div>
                   </div>
-                </div>
-                <div class="col-md-3">
-                  <div class="mb-3">
-                    <label for="alamat_customer" class="form-label">Alamat Customer</label>
-                    <input type="text" class="form-control" name="alamat_customer" id="alamat_customer"
-                      aria-describedby="helpId" placeholder="" />
-                  </div>
-                </div>
-                <div class="col-md-3">
-                  <div class="mb-3">
-                    <label for="kontak" class="form-label">Kontak Customer</label>
-                    <input type="text" class="form-control" name="kontak" id="kontak" aria-describedby="helpId"
-                      placeholder="" />
-                  </div>
-                </div>
-                <div class="col-md-3">
-                  <div class="mb-3">
-                    <label for="total" class="form-label">Total</label>
-                    <input type="text" class="form-control" name="total" id="total"
-                      aria-describedby="helpId" placeholder="" value="" readonly />
-                  </div>
-                </div>
               </div>
-            </div>
-          </div>
-
-          <div class="card">
-            <div class="card-header">
-              <h4 class="card-title">Form Keranjang</h4>
-            </div>
-            <div class="card-body">
-              <table class="table table-bordered rounded" id="keranjangTable">
-                <thead>
-                  <tr>
-                    <th>Nama Barang</th>
-                    <th>Harga</th>
-                    <th>Jumlah</th>
-                    <th>Total</th>
-                    <th>Aksi</th>
-                  </tr>
-                </thead>
-                <tbody></tbody>
-              </table>
-              <div class="mt-3">
-                <h5>Total Keseluruhan: <span id="totalKeseluruhan">Rp 0</span></h5>
+              <div class="col-md-8">
+                  <div class="card">
+                    <div class="card-header">
+                      <h4 class="card-title">Form Keranjang</h4>
+                    </div>
+                    <div class="card-body">
+                      <table class="table table-bordered rounded" id="keranjangTable">
+                        <thead>
+                          <tr>
+                            <th>Nama Barang</th>
+                            <th>Harga</th>
+                            <th>Jumlah</th>
+                            <th>Total</th>
+                            <th>Aksi</th>
+                          </tr>
+                        </thead>
+                        <tbody></tbody>
+                      </table>
+                      <div class="mt-3">
+                        <h5>Total Keseluruhan: <span id="totalKeseluruhan">Rp 0</span></h5>
+                      </div>
+                      <button type="submit" class="btn btn-primary mt-3">Checkout</button>
+                    </div>
+                  </div>
               </div>
-              <button type="submit" class="btn btn-primary mt-3">Checkout</button>
-            </div>
           </div>
         </form>
 

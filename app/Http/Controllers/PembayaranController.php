@@ -15,11 +15,6 @@ class PembayaranController extends Controller
         return view('admin.penjualan.index');
     }
 
-    public function create()
-    {
-        return view('admin.pembayaran.pembayaran-create');
-    }
-
     public function store(Request $request)
     {
         // dd($request->all());
@@ -35,43 +30,60 @@ class PembayaranController extends Controller
             'alamat_customer' => $alamat_customer,
             'kontak' => $kontak,
             'tota_pembayaran' => $total,
+            'created_at' => now()
         ];
 
-        $customer = Pembayaran::create($data);
+        $customer = Pembayaran::insertGetId($data);
 
+        // Ambil data `id_barang` dan `kuantitas` dari request
         $id_barang = $request->input('id_barang', []);
         $kuantitas = $request->input('kuantitas', []);
 
-        // Siapkan data untuk sinkronisasi
+        // Ambil ID pembayaran yang baru saja dibuat
+        $pembayaran_id = $customer;
+        // dd($pembayaran_id);
+
+        // Siapkan data untuk sinkronisasi dengan menyertakan pembayaran_id
         $syncData = [];
         foreach ($id_barang as $key => $barang_id) {
-            $syncData[$barang_id] = ['kuantitas' => $kuantitas[$key]];
+            $syncData[$barang_id] = [
+                'kuantitas' => $kuantitas[$key],
+                'pembayaran_id' => $pembayaran_id,  // Menambahkan pembayaran_id
+            ];
+
+            // Kurangi stok barang berdasarkan kuantitas yang dipesan
+            $barang = Barang::where('id', $barang_id)->first();
+            if ($barang) {
+                $barang->update(['stok' => $barang->stok - $kuantitas[$key]]);
+            }
         }
 
-        // Sinkronisasi data dengan tabel pivot
-        $customer->barang()->sync($syncData);
+        // Sinkronisasi data dengan tabel pivot, sekarang menyertakan pembayaran_id
+        $pembayaran = new Pembayaran();
+        $pembayaran->barang()->sync($syncData);
 
-        // Redirect ke dashboard
-        return redirect()->route('pembayaran.index')->with('success', 'Data berhasil disimpan.');
+        // Redirect ke dashboard dengan pesan sukses
+        return redirect()->route('pembayaran.show', $token)->with('success', 'Data berhasil disimpan.');
+
     }
 
     public function show(Pembayaran $pembayaran)
     {
-        //
+        return view('admin.penjualan.penjualan-show', compact('pembayaran'));
     }
 
-    public function edit(Pembayaran $pembayaran)
+    public function penjualan()
     {
-        //
-    }
+        $penjualans = Pembayaran::withCount('barang')->get();
 
-    public function update(Request $request, Pembayaran $pembayaran)
-    {
-        //
+        return view('admin.pembayaran.pembayaran-create', compact('penjualans'));
     }
 
     public function destroy(Pembayaran $pembayaran)
     {
-        //
+        DetailPembayaran::where('pembayaran_id', $pembayaran->id)->delete();
+        $pembayaran->delete();
+
+        return redirect()->route('penjualan.index')->with('success', "Data Berhasil dihapus");
     }
 }

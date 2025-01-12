@@ -33,9 +33,14 @@ Route::middleware(['auth', 'verified'])->group(function () {
     // api
     Route::get('/barang-api/{key}', [BarangController::class, 'barangAPI'])->name('barang.api');
 
-    // bagian penjualan / kasir
+    // bagian pembayaran / kasir
     Route::get('/pembayaran', [PembayaranController::class, 'index'])->name('pembayaran.index');
     Route::post('/pembayaran', [PembayaranController::class, 'store'])->name('pembayaran.store');
+    Route::get('/pembayaran/{pembayaran}', [PembayaranController::class, 'show'])->name('pembayaran.show');
+
+    // bagaian data master penjualan
+    Route::get('/penjualan', [PembayaranController::class, 'penjualan'])->name('penjualan.index');
+    Route::delete('/penjualan/{pembayaran}', [PembayaranController::class, 'destroy'])->name('penjualan.destroy');
 });
 
 Route::middleware('auth')->group(function () {

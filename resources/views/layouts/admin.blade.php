@@ -12,8 +12,11 @@
   <!-- App favicon -->
   <link rel="shortcut icon" href="{{ asset('') }}assets/images/favicon.ico">
 
-
   <link href="{{ asset('') }}assets/libs/simple-datatables/style.css" rel="stylesheet" type="text/css" />
+
+  <!-- Sweet Alert -->
+  <link href="{{ asset('') }}assets/libs/sweetalert2/sweetalert2.min.css" rel="stylesheet" type="text/css">
+  <link href="{{ asset('') }}assets/libs/animate.css/animate.min.css" rel="stylesheet" type="text/css">
 
   <!-- App css -->
   <link href="{{ asset('') }}assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
@@ -135,6 +138,10 @@
               <li class="nav-item">
                 <a class="nav-link"
                   href="/barang">Data Spareparts</a>
+              </li><!--end nav-item-->
+              <li class="nav-item">
+                <a class="nav-link"
+                  href="/penjualan">Data Penjualan</a>
               </li><!--end nav-item-->
 
             </ul><!--end navbar-nav--->
@@ -315,6 +322,11 @@
   <script src="{{ asset('') }}assets/js/pages/datatable.init.js"></script>
 
   <script src="{{ asset('') }}assets/js/pages/form-validation.js"></script>
+
+  <!-- Sweet-Alert  -->
+  <script src="{{ asset('') }}assets/libs/sweetalert2/sweetalert2.min.js"></script>
+  <script src="{{ asset('') }}assets/js/pages/sweet-alert.init.js"></script>
+  <x-admin.alert></x-admin.alert>
 
   <!-- App js -->
   <script src="{{ asset('') }}assets/js/app.js"></script>

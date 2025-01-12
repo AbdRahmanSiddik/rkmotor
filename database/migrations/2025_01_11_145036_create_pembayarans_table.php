@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('nama_customer');
             $table->string('alamat_customer')->nullable();
             $table->string('kontak')->nullable();
-            $table->decimal('tota_pembayaran');
+            $table->decimal('tota_pembayaran', 19 ,2);
             $table->timestamps();
         });
     }
